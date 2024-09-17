@@ -38,14 +38,14 @@ struct HistoryView: View {
                 .font(.title2)
                 .bold()
                 .padding(.horizontal)
-                .foregroundColor(.C_4)
+                .foregroundColor(.C_1)
                 .shadow(color: Color.primary.opacity(0.3), radius: 3, x: 0, y: 2)
             
             // Total de días completados
             Text("\(totalCompletedDays)")
                 .font(.system(size: 96, weight: .bold))
                 .padding(.horizontal)
-                .foregroundColor(.C_4)
+                .foregroundColor(.C_1)
                 .shadow(color: Color.primary.opacity(0.3), radius: 3, x: 0, y: 2)
             
             Spacer()
@@ -55,18 +55,18 @@ struct HistoryView: View {
                 .font(.title2)
                 .bold()
                 .padding(.horizontal)
-                .foregroundColor(.C_4)
+                .foregroundColor(.C_1)
                 .shadow(color: Color.primary.opacity(0.3), radius: 3, x: 0, y: 2)
             
             Text("You completed your daily hydration goal for \(calculateWeeklyPercentage())% of the last 7 days.")
                 .font(.body)
                 .padding(.horizontal)
-                .foregroundColor(.C_4)
+                .foregroundColor(.C_1)
                 .shadow(color: Color.primary.opacity(0.3), radius: 3, x: 0, y: 2)
             
             Spacer()
         }
-        .background(LinearGradient(gradient: Gradient(colors: [.C_0, .C_1]), startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(gradient: Gradient(colors: [.C_0, .C_4]), startPoint: .top, endPoint: .bottom))
         .onAppear {
             loadWaterHistory()
             calculateCompletedDays()

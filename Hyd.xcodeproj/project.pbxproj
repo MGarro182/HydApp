@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CC3130E92C91CF6E0084504B /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3130E82C91CF6E0084504B /* ChartView.swift */; };
+		CCCD11292C9A20810044BEC5 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCD11282C9A20810044BEC5 /* CircularProgressView.swift */; };
 		CCD01C992C8E054400CC2F25 /* HydApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD01C982C8E054400CC2F25 /* HydApp.swift */; };
 		CCD01C9D2C8E054500CC2F25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCD01C9C2C8E054500CC2F25 /* Assets.xcassets */; };
 		CCD01CA02C8E054500CC2F25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCD01C9F2C8E054500CC2F25 /* Preview Assets.xcassets */; };
@@ -21,7 +22,7 @@
 
 /* Begin PBXFileReference section */
 		CC3130E82C91CF6E0084504B /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
-		CCA14B1C2C90D44F00229E31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CCCD11282C9A20810044BEC5 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		CCD01C952C8E054400CC2F25 /* Hyd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hyd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCD01C982C8E054400CC2F25 /* HydApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydApp.swift; sourceTree = "<group>"; };
 		CCD01C9C2C8E054500CC2F25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,7 +65,7 @@
 		CCD01C972C8E054400CC2F25 /* Hyd */ = {
 			isa = PBXGroup;
 			children = (
-				CCA14B1C2C90D44F00229E31 /* Info.plist */,
+				CCCD11282C9A20810044BEC5 /* CircularProgressView.swift */,
 				CCD01CA82C8E05F800CC2F25 /* UserInfo.swift */,
 				CC3130E82C91CF6E0084504B /* ChartView.swift */,
 				CCD01CB42C8E176800CC2F25 /* SettingsView.swift */,
@@ -158,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCD01CB52C8E176800CC2F25 /* SettingsView.swift in Sources */,
+				CCCD11292C9A20810044BEC5 /* CircularProgressView.swift in Sources */,
 				CCD01CA92C8E05F800CC2F25 /* UserInfo.swift in Sources */,
 				CCD01CAD2C8E099400CC2F25 /* MainView.swift in Sources */,
 				CCD01CB32C8E0FD700CC2F25 /* ContentView.swift in Sources */,
@@ -301,7 +303,6 @@
 				DEVELOPMENT_TEAM = XLQWM683FV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Hyd/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -331,7 +332,6 @@
 				DEVELOPMENT_TEAM = XLQWM683FV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Hyd/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

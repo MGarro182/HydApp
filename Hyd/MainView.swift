@@ -58,6 +58,12 @@ struct MainView: View {
         }
     }
     
+    // New function to calculate daily water intake based on weight
+    var calculatedDailyGoal: Double {
+        let waterPerKg = 35.0 // Standard: 35 mL per kg of weight
+        return weight * waterPerKg
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -69,7 +75,7 @@ struct MainView: View {
                     .padding()
                     .shadow(color: Color.primary.opacity(0.3), radius: 3, x: 0, y: 2)
                 
-                CircularProgressView(progress: $waterConsumed, goal: dailyGoal)
+                CircularProgressView(progress: $waterConsumed, goal: calculatedDailyGoal)
                     .frame(width: 150, height: 150)
                     .padding()
                 
@@ -84,7 +90,7 @@ struct MainView: View {
                         .shadow(color: Color.primary.opacity(0.3), radius: 3, x: 0, y: 2)
                 }
                 
-                let remaining = dailyGoalInPreferredUnit - waterConsumedInPreferredUnit
+                let remaining = calculatedDailyGoal - waterConsumedInPreferredUnit
                 Text("Water Remaining: \(String(format: "%.1f", remaining)) \(unitVolume)")
                     .font(.system(size: 30))
                     .fontWidth(.compressed)
@@ -168,8 +174,8 @@ struct MainView: View {
             .onAppear {
                 checkReset()
             }
-            .onChange(of: waterConsumed) { newValue in
-                if newValue >= dailyGoal {
+            .onChange(of: waterConsumed) { oldValue, newValue in
+                if newValue >= calculatedDailyGoal {
                     showCongratulations = true
                 }
             }
@@ -178,8 +184,8 @@ struct MainView: View {
     
     func addWater() {
         waterConsumed += 250
-        if waterConsumed > dailyGoal {
-            waterConsumed = dailyGoal
+        if waterConsumed > calculatedDailyGoal {
+            waterConsumed = calculatedDailyGoal
         }
         saveWaterHistory()
     }
@@ -218,34 +224,6 @@ struct MainView: View {
         let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: today))!
         let dayIndex = calendar.dateComponents([.day], from: startOfWeek, to: today).day! % 7
         return (dayIndex + 7) % 7
-    }
-}
-
-struct CircularProgressView: View {
-    @Binding var progress: Double
-    var goal: Double
-    
-    var body: some View {
-        let percentage = min(progress / goal, 1.0)
-        ZStack {
-            Circle()
-                .stroke(lineWidth: 10)
-                .opacity(0.4)
-                .foregroundColor(.C_4)
-            
-            Circle()
-                .trim(from: 0.0, to: CGFloat(percentage))
-                .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                .foregroundColor(.C_4)
-                .rotationEffect(Angle(degrees: 270.0))
-                .animation(.linear)
-            
-            Text(String(format: "%.0f%%", percentage * 100))
-                .font(.headline)
-                .bold()
-                .foregroundColor(.C_4)
-                .shadow(color: Color.primary.opacity(0.3), radius: 3, x: 0, y: 2)
-        }
     }
 }
 

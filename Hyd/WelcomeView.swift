@@ -29,11 +29,11 @@ struct WelcomeView: View {
                 if isActive {
                     MainView()
                         .transition(.opacity)
-                        .animation(.easeInOut(duration: 1.0))
                         .padding(.top, -360)
                         .padding(.bottom, 0)
                 }
             }
+            .animation(.easeInOut(duration: 1.0), value: isActive)
 
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
