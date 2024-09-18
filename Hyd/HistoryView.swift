@@ -30,8 +30,7 @@ struct HistoryView: View {
                     .padding()
                     .rotationEffect(.degrees(30.0))
             }
-            
-            // Mostrar ChartView
+
             ChartView(data: waterHistory)
             
             Text("Weekly Hydration")
@@ -40,8 +39,7 @@ struct HistoryView: View {
                 .padding(.horizontal)
                 .foregroundColor(.C_1)
                 .shadow(color: Color.primary.opacity(0.3), radius: 3, x: 0, y: 2)
-            
-            // Total de días completados
+
             Text("\(totalCompletedDays)")
                 .font(.system(size: 96, weight: .bold))
                 .padding(.horizontal)
@@ -49,8 +47,7 @@ struct HistoryView: View {
                 .shadow(color: Color.primary.opacity(0.3), radius: 3, x: 0, y: 2)
             
             Spacer()
-            
-            // Porcentaje de hidratación habitual
+
             Text("Weekly Hydration")
                 .font(.title2)
                 .bold()
@@ -77,14 +74,13 @@ struct HistoryView: View {
         let daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
         var savedHistory = UserDefaults.standard.object(forKey: "waterHistory") as? [Double] ?? Array(repeating: 0.0, count: 7)
         
-        // Reinitialize history if starting a new week
         let todayIndex = getTodayIndex()
         if todayIndex == 0 {
             waterHistory = zip(daysOfWeek, savedHistory).map { DataPoint(day: $0, value: $1) }
-            // Reset the history in UserDefaults
+
             UserDefaults.standard.set(Array(repeating: 0.0, count: 7), forKey: "waterHistory")
         } else {
-            // Ensure the history array has 7 elements
+
             while savedHistory.count < 7 {
                 savedHistory.append(0.0)
             }

@@ -58,7 +58,6 @@ struct MainView: View {
         }
     }
     
-    // New function to calculate daily water intake based on weight
     var calculatedDailyGoal: Double {
         let waterPerKg = 35.0 // Standard: 35 mL per kg of weight
         return weight * waterPerKg
@@ -98,16 +97,7 @@ struct MainView: View {
                     .shadow(color: Color.primary.opacity(0.3), radius: 3, x: 0, y: 2)
                     .padding()
                 
-                Text("Height: \(convertedHeight)")
-                    .font(.system(size: 25))
-                    .fontWidth(.compressed)
-                    .foregroundColor(.C_4)
-                    .shadow(color: Color.primary.opacity(0.3), radius: 3, x: 0, y: 2)
-                Text("Weight: \(convertedWeight)")
-                    .font(.system(size: 25))
-                    .fontWidth(.compressed)
-                    .foregroundColor(.C_4)
-                    .shadow(color: Color.primary.opacity(0.3), radius: 3, x: 0, y: 2)
+                
                 
                 Spacer()
                 
@@ -132,7 +122,7 @@ struct MainView: View {
                     Spacer()
                     
                     Button(action: {
-                        // Acción para el ícono del medio si es necesario
+
                     }) {
                         Image("Hdy-Bottle")
                             .resizable()

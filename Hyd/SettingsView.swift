@@ -39,6 +39,9 @@ struct SettingsView: View {
 
     var body: some View {
         VStack {
+            
+            Spacer()
+            
             HStack {
                 Text("Settings")
                     .font(.system(size: 50))
@@ -96,17 +99,17 @@ struct SettingsView: View {
                     }
                     
                     Button(action: {
-                        print("Save button pressed") // Debug statement
+                        print("Save button pressed")
                         
                         if isDataComplete {
-                            print("Data is complete") // Debug statement
+                            print("Data is complete")
                             
                             if let heightValue = Double(newHeight) {
-                                print("Height value: \(heightValue)") // Debug statement
+                                print("Height value: \(heightValue)")
                                 height = heightValue
                             }
                             if let weightValue = Double(newWeight) {
-                                print("Weight value: \(weightValue)") // Debug statement
+                                print("Weight value: \(weightValue)")
                                 weight = weightValue
                             }
                             
@@ -117,10 +120,12 @@ struct SettingsView: View {
                             alertMessage = "Your data has been saved successfully."
                             showAlert = true
                         } else {
-                            print("Data is incomplete") // Debug statement
+                            print("Data is incomplete")
                             alertMessage = "Please complete both height and weight fields before saving."
                             showAlert = true
                         }
+                        
+                        
                         
                     }) {
                         Text("Save Settings")
@@ -141,8 +146,8 @@ struct SettingsView: View {
                         )
                     }
                 }
-                .background(Color(.systemGray6)) // Cambiar el color de fondo del Form
-                .cornerRadius(10) // Opcional: Añadir bordes redondeados al Form
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
             }
             .padding()
         }
@@ -150,7 +155,6 @@ struct SettingsView: View {
             LinearGradient(gradient: Gradient(colors: [.C_0, .C_4]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all))
         
         .onAppear {
-            // Initialize fields with current values
             newHeight = "\(height)"
             newWeight = "\(weight)"
             selectedHeightUnit = unitHeight

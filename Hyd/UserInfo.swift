@@ -57,15 +57,13 @@ struct UserInfo: View {
     }
     
     private func saveUserData() {
-        // Guardar datos en UserDefaults
         if let heightValue = Double(height), let weightValue = Double(weight) {
             defaults.set(heightValue, forKey: "height")
             defaults.set(weightValue, forKey: "weight")
             defaults.set(heightUnit, forKey: "heightUnit")
             defaults.set(weightUnit, forKey: "weightUnit")
             defaults.set(volumeUnit, forKey: "volumeUnit")
-            
-            // Verificar los datos guardados
+
             print("Height saved: \(defaults.double(forKey: "height"))")
             print("Weight saved: \(defaults.double(forKey: "weight"))")
             print("Height Unit saved: \(defaults.string(forKey: "heightUnit") ?? "None")")
